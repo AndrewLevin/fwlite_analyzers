@@ -24,10 +24,24 @@ for event in events:
     
     for met in mets.product():
         print met.pt()
+        print met.uncorPt()
+        print met.shiftedPt(ROOT.pat.MET.JetEnUp)
+        print met.shiftedPt(ROOT.pat.MET.JetEnDown)
+        print met.shiftedPt(ROOT.pat.MET.JetResUp)
+        print met.shiftedPt(ROOT.pat.MET.JetResDown)
+        print met.shiftedPt(ROOT.pat.MET.UnclusteredEnUp)
+        print met.shiftedPt(ROOT.pat.MET.UnclusteredEnDown)
         print met.phi()
 
     for puppimet in puppimets.product():
         print puppimet.pt()
+        print puppimet.uncorPt()
+        print puppimet.shiftedPt(ROOT.pat.MET.JetEnUp)
+        print puppimet.shiftedPt(ROOT.pat.MET.JetEnDown)
+        print puppimet.shiftedPt(ROOT.pat.MET.JetResUp)
+        print puppimet.shiftedPt(ROOT.pat.MET.JetResDown)
+        print puppimet.shiftedPt(ROOT.pat.MET.UnclusteredEnUp)
+        print puppimet.shiftedPt(ROOT.pat.MET.UnclusteredEnDown)
         print puppimet.phi()
 
         
