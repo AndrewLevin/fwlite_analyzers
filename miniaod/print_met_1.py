@@ -22,7 +22,12 @@ for event in events:
 
     met = mets.product().front()
     print "met.pt() = "+str(met.pt())
+    print "met.px() = "+str(met.px())
+    print "met.py() = "+str(met.py())
     print "met.uncorPt() = "+str(met.uncorPt())
+    print "met.uncorPx() = "+str(met.uncorPx())
+    print "met.uncorPy() = "+str(met.uncorPy())
+
 
     puppimet = puppimets.product().front()
     print "puppimet.pt() = "+str(puppimet.pt())
