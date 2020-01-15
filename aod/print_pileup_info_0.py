@@ -6,7 +6,27 @@ from DataFormats.FWLite import Events, Handle
 
 #events = Events (['root://cms-xrd-global.cern.ch//store/mc/RunIISpring15PrePremix/Neutrino_E-10_gun/GEN-SIM-DIGI-RAW/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v2-v2/80008/9C1072E7-FC82-E611-A3CD-0CC47A78A3F8.root']) 
 
-events = Events (['root://cms-xrd-global.cern.ch//store/mc/RunIISummer16DR80Premix/WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/AODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext2-v2/70001/901B42AA-D229-E711-AD84-A4BF0101202F.root']) 
+#events = Events (['root://cms-xrd-global.cern.ch//store/mc/RunIISummer16DR80Premix/WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/AODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext2-v2/10000/F81C1AE5-A14C-E711-8F12-FA163E662601.root'])
+
+#events = Events (['root://cms-xrd-global.cern.ch//store/mc/RunIISummer16DR80Premix/WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/AODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/60000/5A15E25A-6BBE-E611-BBB5-001E67A40442.root']) #event 1
+
+#events = Events (['root://cms-xrd-global.cern.ch//store/mc/RunIISummer16DR80Premix/WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/AODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/60000/44F71518-BDBE-E611-BFC9-047D7BD6DD56.root']) #event 2
+
+#events = Events (['root://cms-xrd-global.cern.ch//store/mc/RunIISummer16DR80Premix/WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/AODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/120000/C2570CF1-8CBE-E611-9F56-0CC47A00A814.root']) #event 3
+
+#events = Events (['root://cms-xrd-global.cern.ch//store/mc/RunIISummer16DR80Premix/WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/AODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/50000/FEE5FAF1-0EBF-E611-B699-002590AB38DA.root']) #event 4
+
+#events = Events (['root://cms-xrd-global.cern.ch//store/mc/RunIISummer16DR80Premix/WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/AODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/80000/9A90BF89-11BF-E611-B9F9-842B2B71EDBE.root']) #event 5
+
+#events = Events (['root://cms-xrd-global.cern.ch//store/mc/RunIISummer16DR80Premix/WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/AODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/80000/345A6B28-FABE-E611-BA99-D4AE526A0B47.root']) #event 6
+
+#events = Events (['root://cms-xrd-global.cern.ch//store/mc/RunIISummer16DR80Premix/WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/AODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/80000/E012BFB6-C7BE-E611-8142-D4AE526A0DAE.root']) #event 7
+
+#events = Events (['root://cms-xrd-global.cern.ch//store/mc/RunIISummer16DR80Premix/WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/AODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/50000/06845F4A-10BF-E611-983E-0CC47A7E6A8E.root']) #event 8
+
+#events = Events (['root://cms-xrd-global.cern.ch//store/mc/RunIISummer16DR80Premix/WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/AODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/60000/7C9AA3AE-C2BE-E611-8F63-70106F4D2378.root']) #event 9
+
+events = Events (['root://cms-xrd-global.cern.ch//store/mc/RunIISummer16DR80Premix/WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/AODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/120000/0E560383-8CBE-E611-9A71-E41D2D08DE80.root']) #event 10
 
 #events = Events (['/afs/cern.ch/work/a/amlevin/wjets_prod/CMSSW_8_0_21/src/SMP-RunIISummer16DR80Premix-00199.root']) 
 
@@ -44,10 +64,28 @@ def deltaR(eta1,phi1,eta2=None,phi2=None):
 count= 0
 for event in events:
 
-    if event.eventAuxiliary().luminosityBlock() != 1054017:
+#    if event.eventAuxiliary().luminosityBlock() != 210477: #event 1
+#    if event.eventAuxiliary().luminosityBlock() != 27628: #event 2
+#    if event.eventAuxiliary().luminosityBlock() != 248202: #event 3
+#    if event.eventAuxiliary().luminosityBlock() != 102025: #event 4
+#    if event.eventAuxiliary().luminosityBlock() != 101558: #event 5
+#    if event.eventAuxiliary().luminosityBlock() != 184736: #event 6
+#    if event.eventAuxiliary().luminosityBlock() != 166948: #event 7
+#    if event.eventAuxiliary().luminosityBlock() != 127833: #event 8
+#    if event.eventAuxiliary().luminosityBlock() != 100386: #event 9
+    if event.eventAuxiliary().luminosityBlock() != 249031: #event 10
         continue
 
-    if event.eventAuxiliary().event() != 480842431:
+#    if event.eventAuxiliary().event() != 51776516: #event 1
+#    if event.eventAuxiliary().event() != 6796538: #event 2
+#    if event.eventAuxiliary().event() != 61049477: #event 3
+#    if event.eventAuxiliary().event() != 25099099: #event 4
+#    if event.eventAuxiliary().event() != 24983852: #event 5
+#    if event.eventAuxiliary().event() != 45437507: #event 6
+#    if event.eventAuxiliary().event() != 41062367: #event 7
+#    if event.eventAuxiliary().event() != 31446158: #event 8
+#    if event.eventAuxiliary().event() != 24694228: #event 9
+    if event.eventAuxiliary().event() != 61254337: #event 10
         continue
 
     event.getByLabel(genParticlesLabel, genparticles)
