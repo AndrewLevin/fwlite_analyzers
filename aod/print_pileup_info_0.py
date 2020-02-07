@@ -1,3 +1,14 @@
+import argparse
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument("--infile",type=str,help="Input filename",required=True)
+parser.add_argument("--lumi",type=int,help="Luminosity block number",required=True)
+parser.add_argument("--event",type=int,help="Event number",required=True)
+
+
+args = parser.parse_args()
+
 import ROOT
 import sys
 from DataFormats.FWLite import Events, Handle
@@ -26,7 +37,9 @@ from DataFormats.FWLite import Events, Handle
 
 #events = Events (['root://cms-xrd-global.cern.ch//store/mc/RunIISummer16DR80Premix/WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/AODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/60000/7C9AA3AE-C2BE-E611-8F63-70106F4D2378.root']) #event 9
 
-events = Events (['root://cms-xrd-global.cern.ch//store/mc/RunIISummer16DR80Premix/WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/AODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/120000/0E560383-8CBE-E611-9A71-E41D2D08DE80.root']) #event 10
+#events = Events (['root://cms-xrd-global.cern.ch//store/mc/RunIISummer16DR80Premix/WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/AODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/120000/0E560383-8CBE-E611-9A71-E41D2D08DE80.root']) #event 10
+
+events = Events ([args.infile])
 
 #events = Events (['/afs/cern.ch/work/a/amlevin/wjets_prod/CMSSW_8_0_21/src/SMP-RunIISummer16DR80Premix-00199.root']) 
 
@@ -73,7 +86,8 @@ for event in events:
 #    if event.eventAuxiliary().luminosityBlock() != 166948: #event 7
 #    if event.eventAuxiliary().luminosityBlock() != 127833: #event 8
 #    if event.eventAuxiliary().luminosityBlock() != 100386: #event 9
-    if event.eventAuxiliary().luminosityBlock() != 249031: #event 10
+#    if event.eventAuxiliary().luminosityBlock() != 249031: #event 10
+    if event.eventAuxiliary().luminosityBlock() != args.lumi: #event 10
         continue
 
 #    if event.eventAuxiliary().event() != 51776516: #event 1
@@ -85,7 +99,8 @@ for event in events:
 #    if event.eventAuxiliary().event() != 41062367: #event 7
 #    if event.eventAuxiliary().event() != 31446158: #event 8
 #    if event.eventAuxiliary().event() != 24694228: #event 9
-    if event.eventAuxiliary().event() != 61254337: #event 10
+#    if event.eventAuxiliary().event() != 61254337: #event 10
+    if event.eventAuxiliary().event() != args.event: #event 10
         continue
 
     event.getByLabel(genParticlesLabel, genparticles)
