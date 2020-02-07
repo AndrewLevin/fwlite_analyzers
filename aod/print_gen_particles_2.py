@@ -3,9 +3,9 @@ import argparse
 parser = argparse.ArgumentParser()
 
 parser.add_argument("--infile",type=str,help="Input file",required=True)
-parser.add_argument("--lumi",type=int,help="",required=True)
-parser.add_argument("--evmin",type=int,help="",required=True)
-parser.add_argument("--evmax",type=int,help="",required=True)
+parser.add_argument("--lumi",type=int,help="Luminosity block number",required=True)
+parser.add_argument("--evmin",type=int,help="Event number minimum",required=True)
+parser.add_argument("--evmax",type=int,help="Event number maximum",required=True)
 parser.add_argument("--phi",type=float,help="Photon phi",required=True)
 parser.add_argument("--eta",type=float,help="Photon eta",required=True)
 
