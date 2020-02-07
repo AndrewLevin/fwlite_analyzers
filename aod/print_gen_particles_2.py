@@ -1,3 +1,17 @@
+import argparse
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument("--infile",type=str,help="Input file",required=True)
+parser.add_argument("--lumi",type=int,help="",required=True)
+parser.add_argument("--evmin",type=int,help="",required=True)
+parser.add_argument("--evmax",type=int,help="",required=True)
+parser.add_argument("--phi",type=float,help="Photon phi",required=True)
+parser.add_argument("--eta",type=float,help="Photon eta",required=True)
+
+args = parser.parse_args()
+
+
 import ROOT
 import sys
 from DataFormats.FWLite import Events, Handle
@@ -13,7 +27,8 @@ from DataFormats.FWLite import Events, Handle
 #events = Events (['root://cms-xrd-global.cern.ch//store/mc/RunIISummer15GS/MinBias_TuneCUETP8M1_13TeV-pythia8/GEN-SIM/MCRUN2_71_V1_ext1-v1/00006/B4491CCD-DDD0-E511-9C43-008CFA1C645C.root']) #event 7
 #events = Events (['root://cms-xrd-global.cern.ch//store/mc/RunIISummer15GS/MinBias_TuneCUETP8M1_13TeV-pythia8/GEN-SIM/MCRUN2_71_V1_ext1-v1/40007/C440A553-F4D0-E511-B068-02163E015D6D.root']) #event 8
 #events = Events (['root://cms-xrd-global.cern.ch//store/mc/RunIISummer15GS/MinBias_TuneCUETP8M1_13TeV-pythia8/GEN-SIM/MCRUN2_71_V1_ext1-v1/80002/20888B7F-D5D0-E511-AC8D-002618943913.root']) #event 9
-events = Events (['root://cms-xrd-global.cern.ch//store/mc/RunIISummer15GS/MinBias_TuneCUETP8M1_13TeV-pythia8/GEN-SIM/MCRUN2_71_V1_ext1-v1/60002/6AD4B8D9-2AD1-E511-8470-44A842B4B3FE.root']) #event 10
+#events = Events (['root://cms-xrd-global.cern.ch//store/mc/RunIISummer15GS/MinBias_TuneCUETP8M1_13TeV-pythia8/GEN-SIM/MCRUN2_71_V1_ext1-v1/60002/6AD4B8D9-2AD1-E511-8470-44A842B4B3FE.root']) #event 10
+events = Events ([args.infile])
 
 #events = Events (['root://cms-xrd-global.cern.ch//store/mc/RunIISummer16DR80Premix/WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/AODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext2-v2/70001/901B42AA-D229-E711-AD84-A4BF0101202F.root']) 
 
@@ -57,7 +72,8 @@ for event in events:
 #    if not (event.eventAuxiliary().luminosityBlock() == 1919870 and event.eventAuxiliary().event() in range(378625679,378625701+1)): #event 7
 #    if not (event.eventAuxiliary().luminosityBlock() == 950990 and event.eventAuxiliary().event() in range(187548794,187548822+1)): #event 8
 #    if not (event.eventAuxiliary().luminosityBlock() == 2188278 and event.eventAuxiliary().event() in range(431559691,431559705+1)) or (event.eventAuxiliary().luminosityBlock() == 2188279 and event.eventAuxiliary().event() in range(431559706,431559706+1)): #event 9
-    if not (event.eventAuxiliary().luminosityBlock() == 2503143 and event.eventAuxiliary().event() in range(493655487,493655512+1)): #event 10
+#    if not (event.eventAuxiliary().luminosityBlock() == 2503143 and event.eventAuxiliary().event() in range(493655487,493655512+1)): #event 10
+    if not (event.eventAuxiliary().luminosityBlock() == args.lumi and event.eventAuxiliary().event() in range(args.evmin,args.evmax+1)): 
         continue
 
 #    if event.eventAuxiliary().event() != 193939338:
@@ -86,7 +102,8 @@ for event in events:
 #        dr_genpart_photon = deltaR(genparticle.eta(),genparticle.phi(),-0.839843,-1.068847) #event 7
 #        dr_genpart_photon = deltaR(genparticle.eta(),genparticle.phi(),-1.595947,3.1020507) #event 8
 #        dr_genpart_photon = deltaR(genparticle.eta(),genparticle.phi(),1.5783691,2.3637695) #event 9
-        dr_genpart_photon = deltaR(genparticle.eta(),genparticle.phi(),0.3132934,1.2114257) #event 10
+#        dr_genpart_photon = deltaR(genparticle.eta(),genparticle.phi(),0.3132934,1.2114257) #event 10
+        dr_genpart_photon = deltaR(genparticle.eta(),genparticle.phi(),args.eta,args.phi)
 
         if dr_genpart_photon > 0.5:
             continue
